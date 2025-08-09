@@ -108,10 +108,14 @@ impl<N, U, E> Graph<N, U, E> {
 
     /// Get immutable reference to a node by id.
     pub fn node(&self, id: NodeId) -> Option<&Node<N>> { self.nodes.get(id) }
+    /// Get mutable reference to a node by id.
+    pub fn node_mut(&mut self, id: NodeId) -> Option<&mut Node<N>> { self.nodes.get_mut(id) }
     /// Get immutable reference to an edge by id.
     pub fn edge(&self, id: EdgeId) -> Option<&Edge<E>> { self.edges.get(id) }
     /// Get immutable reference to a unit by id.
     pub fn unit(&self, id: UnitId) -> Option<&Unit<U>> { self.units.get(id) }
+    /// Get mutable reference to a unit by id.
+    pub fn unit_mut(&mut self, id: UnitId) -> Option<&mut Unit<U>> { self.units.get_mut(id) }
 
     /// Get the node id where a given unit resides.
     pub fn node_of_unit(&self, unit: UnitId) -> Option<NodeId> {
